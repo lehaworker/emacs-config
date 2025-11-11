@@ -62,6 +62,16 @@
 
 					; Other.
 					; ======
+
+
+(use-package no-littering
+  :ensure (:wait t)
+  :demand t
+  :config
+  (require 'no-littering)
+  ;; TODO: check if it's safe
+  (no-littering-theme-backups))
+
 (use-package vertico
   :ensure t
   :demand t
@@ -162,6 +172,7 @@
   (tab-bar-new-tab-choice #'bufferlo-create-local-scratch-buffer)
   :config
   (bufferlo-mode)
+  (tab-bar-mode)
   (add-hook 'after-make-frame-functions #'bufferlo-switch-to-local-scratch-buffer)
   (defvar my:bufferlo-consult--source-local-buffers
     (list :name "Bufferlo Local Buffers"
@@ -190,6 +201,8 @@
 				:as #'buffer-name)))
     "Non-local Bufferlo buffer candidate source for `consult-buffer'.")
 
+  (setq consult-buffer-sources ())
   ;; add in the reverse order of display preference
   (add-to-list 'consult-buffer-sources 'my:bufferlo-consult--source-other-buffers)
   (add-to-list 'consult-buffer-sources 'my:bufferlo-consult--source-local-buffers))
+
