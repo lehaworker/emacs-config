@@ -206,3 +206,17 @@
   (add-to-list 'consult-buffer-sources 'my:bufferlo-consult--source-other-buffers)
   (add-to-list 'consult-buffer-sources 'my:bufferlo-consult--source-local-buffers))
 
+(use-package vterm
+  :ensure
+  (:host github :repo "kiennq/emacs-libvterm")
+  :init
+  (defun leha/new-vterm-instace ()
+    (interactive)
+    (vterm t)))
+
+(use-package vterm-toggle
+  :ensure t
+  :after (vterm)
+  :custom
+  (vterm-toggle-fullscreen-p nil)
+  (vterm-toggle-scope 'project))
