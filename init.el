@@ -210,7 +210,7 @@
   :ensure
   (:host github :repo "kiennq/emacs-libvterm")
   :init
-  (defun leha/new-vterm-instace ()
+  (defun leha/new-vterm-instance ()
     (interactive)
     (vterm t)))
 
