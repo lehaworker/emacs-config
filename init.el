@@ -151,6 +151,15 @@
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref))
 
+(use-package emacs
+  :after (consult)
+  :bind (("M-g M-g" . consult-goto-line)
+         ("C-x b" . consult-buffer)
+         ("C-s"   . consult-line)
+         ("C-S-s" . isearch-forward)
+         ("C-x r b" . consult-bookmark)
+         ("M-y" . consult-yank-pop)))
+
 (use-package embark
   :ensure t
   :demand t
