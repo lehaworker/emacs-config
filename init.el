@@ -221,7 +221,9 @@
   :init
   (defun leha/new-vterm-instance ()
     (interactive)
-    (vterm t)))
+    (vterm t))
+  :config
+  (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key))
 
 (use-package vterm-toggle
   :ensure t
